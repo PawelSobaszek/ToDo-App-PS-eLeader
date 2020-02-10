@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ToDo App PS eLeader</string>
+    <string-array name="categories">
+        <item>Praca</item>
+        <item>Zakupy</item>
+        <item>Inne</item>
+    </string-array>
+</resources>
