@@ -5,4 +5,14 @@
         <item>Zakupy</item>
         <item>Inne</item>
     </string-array>
+    <string name="todobutton">Dodaj TODO</string>
+    <string name="cancelbutton">Anuluj</string>
+    <string name="addtodobutton">Dodaj zadanie</string>
+    <string name="addtodointro">Dodawanie zadania</string>
+    <string name="writenametodo">Wpisz zadanie do wykonania</string>
+    <string name="datestring">Podaj datę zadania</string>
+    <string name="categorystring">Wybierz kategorie zadania</string>
+    <string name="todo_app_test">todo App test</string>
+    <string name="category">Category</string>
+    <string name="_01_01_2020">01/01/2020</string>
 </resources>

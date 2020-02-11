@@ -10,13 +10,13 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/addTodoButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ListView
             android:id="@+id/todo_item_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -24,8 +24,6 @@
             android:paddingLeft="10dp"
             android:paddingTop="8dp"
             android:paddingRight="10dp"
-            app:layoutManager="LinearLayoutManager"
-            app:spanCount="1"
             tools:listitem="@layout/activity_main_item" />
 
     </LinearLayout>
@@ -33,8 +31,11 @@
     <Button
         android:id="@+id/addTodoButton"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:text="Dodaj ToDo"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/todobutton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />

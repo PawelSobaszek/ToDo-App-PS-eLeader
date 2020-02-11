@@ -12,7 +12,7 @@
         android:id="@+id/addTodoIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dodawanie zadania"
+        android:text="@string/addtodointro"
         android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -23,7 +23,7 @@
         android:id="@+id/writeNameTodo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Wpisz zadanie do wykonania"
+        android:text="@string/writenametodo"
         android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -31,10 +31,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline4" />
 
     <TextView
-        android:id="@+id/dataString"
+        android:id="@+id/dateString"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Podaj datę zadania"
+        android:text="@string/datestring"
         android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline6" />
 
     <DatePicker
-        android:id="@+id/dataTodo"
+        android:id="@+id/dateTodo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:calendarViewShown="false"
@@ -58,7 +58,7 @@
         android:id="@+id/categoryString"
         android:layout_width="128dp"
         android:layout_height="18dp"
-        android:text="Wybierz kategorie zadania"
+        android:text="@string/categorystring"
         android:textColor="@color/textColor"
         app:layout_constraintBottom_toTopOf="@+id/guideline9"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
@@ -75,7 +75,8 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        android:autofillHints="" />
 
     <Spinner
         android:id="@+id/spinner_category"
@@ -171,8 +172,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:text="Anuluj"
+        android:text="@string/cancelbutton"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/forwardButton"
         app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -182,7 +182,7 @@
         android:id="@+id/forwardButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dodaj zadanie"
+        android:text="@string/addtodobutton"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline3"
         app:layout_constraintStart_toEndOf="@+id/cancelButton"
