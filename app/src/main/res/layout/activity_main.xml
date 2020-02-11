@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/bg_pattern_repeated">
+    android:background="#88353B">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,7 +20,7 @@
             android:id="@+id/todo_item_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/bg_pattern_repeated"
+            android:background="#88353B"
             android:paddingLeft="10dp"
             android:paddingTop="8dp"
             android:paddingRight="10dp"
