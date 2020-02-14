@@ -7,14 +7,20 @@ import android.os.Bundle
 import android.widget.ListView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import com.pawelsobaszek.todoapppseleader.AddNewTodoActivity.FormTodoActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
 
+
+    //lista aktualnych zadań
     var arrTodo: ArrayList<TodoItem> = ArrayList()
+    //lista dodanego zadania
     var arrTodoExp: ArrayList<TodoItem> = ArrayList()
+    //lista połączonych arrTodo i arrTodoExp
     var arrTodoConnected: ArrayList<TodoItem> = ArrayList()
+
     val type = object : TypeToken<ArrayList<TodoItem>>() {}.type
 
 
@@ -62,11 +68,15 @@ class MainActivity : AppCompatActivity() {
 
         val gson = Gson()
 
-        //Wczytywanie
+        //Wczytywanie aktualnej listy
         val json = sharedPreferences.getString("todo list", null)
+        //Wczytywanie dodanego zadania
         val json2 = sharedPreferences.getString("todo add to list", null)
+        //Sprawdzamy czy zostało dodane zadanie
         if (json2 == null) {
+            //Sprawdzamy czy w aplikacji zapisane są już zadania
             if (json == null) {
+                //Jeżeli nie dodaliśmy zadania oraz w aplikacji nie są zapisane zadania do wykonania wyświetlamy komunikat o braku zadań
                 noTodoInListView()
                 //Toast.makeText(this, "json2 = null i json = null", Toast.LENGTH_LONG).show()
             } else {
@@ -74,30 +84,39 @@ class MainActivity : AppCompatActivity() {
                 val listView = findViewById(R.id.todo_item_list) as ListView
                 listView.adapter = TodoAdapter(applicationContext, arrTodo)
                 val toJson = gson.toJson(arrTodo)
+                //Zapisujemy aktualną listę zadań
                 editor.putString("todo list", toJson)
                 editor.apply()
                 //Toast.makeText(this, "json2 = null i json != null", Toast.LENGTH_LONG).show()
             }
         } else {
             if (json == null) {
+                //Pobieramy nowo dodane zadanie
                 val newJson = sharedPreferences.getString("todo add to list", null)
                 arrTodoExp = gson.fromJson(newJson, type)
                 val listView = findViewById(R.id.todo_item_list) as ListView
+                //Dodajemy zadanie do ListView
                 listView.adapter = TodoAdapter(applicationContext, arrTodoExp)
                 val toJson = gson.toJson(arrTodoExp)
+                //Zapisujemy zadanie w liście wszystkich zadań
                 editor.putString("todo list", toJson)
+                //Usuwamy zadanie z listy dodawanych zadań
                 editor.remove("todo add to list")
                 editor.apply()
                 //Toast.makeText(this, "json2 != null i json = null", Toast.LENGTH_LONG).show()
             } else {
                 arrTodo = gson.fromJson(json, type)
                 arrTodoExp = gson.fromJson(json2, type)
+                //Łączymy obie listy w jedną
                 arrTodoConnected.addAll(arrTodo)
                 arrTodoConnected.addAll(arrTodoExp)
                 val listView = findViewById(R.id.todo_item_list) as ListView
+                //Dodajemy połączoną listę zadań do ListView
                 listView.adapter = TodoAdapter(applicationContext, arrTodoConnected)
                 val json3 = gson.toJson(arrTodoConnected)
+                //Zapisujemy zadania w pamięci
                 editor.putString("todo list", json3)
+                //Usuwamy nowo dodane zadanie z pamięci SharedPreferences
                 editor.remove("todo add to list")
                 editor.apply()
                 //Toast.makeText(this, "json2 != null i json != null", Toast.LENGTH_LONG).show()

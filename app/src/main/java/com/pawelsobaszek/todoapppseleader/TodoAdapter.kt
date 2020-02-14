@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 
+//Adapter do uzupełniania ListView
 class TodoAdapter(var context: Context, var todo: ArrayList<TodoItem>): BaseAdapter() {
+
 
     private class ViewHolder(row: View?) {
         var txt1: TextView
