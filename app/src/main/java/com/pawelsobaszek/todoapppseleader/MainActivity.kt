@@ -25,11 +25,15 @@ class MainActivity : AppCompatActivity() {
         buttonListener()
     }
 
+
+    //Funkcja wywoływana po wciśnięciu przycisku back
     override fun onBackPressed() {
         super.onBackPressed()
         finishAffinity()
     }
 
+
+    //Nasłuchiwanie przycisku
     fun buttonListener() {
         addTodoButton.setOnClickListener {
             val intent = Intent(this, FormTodoActivity::class.java)
